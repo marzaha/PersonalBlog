@@ -39,7 +39,7 @@ body {
 			<input type="reset" value="重置">
 		</form>
 		<br>
-		<a href="register.jsp">注册</a>
+		<a href="user/register.jsp">注册</a>
 	</div>
 </body>
 </html>

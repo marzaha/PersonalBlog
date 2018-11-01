@@ -47,9 +47,9 @@ public class LoginServlet extends HttpServlet {
 		User user = dao.login(username, password);
 		
 		if (user != null) {
-			req.getRequestDispatcher("loginSuccess.jsp").forward(req, resp);
+			req.getRequestDispatcher("/user/loginSuccess.jsp").forward(req, resp);
 		} else {
-			req.getRequestDispatcher("loginFailure.jsp").forward(req, resp);
+			req.getRequestDispatcher("/user/loginFailure.jsp").forward(req, resp);
 		}
 	}
 

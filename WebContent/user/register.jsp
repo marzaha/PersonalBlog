@@ -47,7 +47,7 @@ body {
         <input type="reset" value="重置">   
     </form>  
     <br>  
-    <a href="login.jsp">登录</a>  
+    <a href="index.jsp">登录</a>  
 	</div>
 </body>
 </html>
