@@ -39,15 +39,15 @@ public class RegisterServlet extends HttpServlet {
 		int role = Integer.valueOf(req.getParameter("role"));
 		
 		User user=new User();
-        user.setId(id);
-        user.setName(name);
-        user.setPassword(password);
-        user.setRole(role);
-        UserDao userDAO=new UserDao(); 
-        userDAO.addUser(user);
+                user.setId(id);
+                user.setName(name);
+                user.setPassword(password);
+                user.setRole(role);
+                UserDao userDAO=new UserDao(); 
+                userDAO.addUser(user);
         
-        System.out.println("注册成功");
-        req.getRequestDispatcher("login.jsp").forward(req, resp);
+                System.out.println("注册成功");
+                req.getRequestDispatcher("login.jsp").forward(req, resp);
 
 	}
 
