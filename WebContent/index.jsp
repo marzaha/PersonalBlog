@@ -1,9 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -21,10 +19,10 @@ body {
 </head>
 
 <body>
-	<div style="text-align:center;margin-top：120px">
+	<div style="text-align: center;">
 		<h2>个人博客</h2>
 		<form action="LoginServlet" methon="post">
-			<table style="margin-left:40%">
+			<table style="margin-left: 40%">
 				<marquee width="200" scrolldelay="250">用户登录</marquee>
 				<tr>
 					<td>账号：</td>
@@ -35,11 +33,10 @@ body {
 					<td><input name="password" type="password" size="21"></td>
 				</tr>
 			</table>
-			<input type="submit" value="登录">
-			<input type="reset" value="重置">
+			<input type="submit" value="登录"> <input type="reset"
+				value="重置">
 		</form>
-		<br>
-		<a href="user/register.jsp">注册</a>
+		<br> <a href="user/register.jsp">注册</a>
 	</div>
 </body>
 </html>
