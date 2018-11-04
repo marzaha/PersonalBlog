@@ -30,14 +30,27 @@ body {
 .input {
 	width: 370px;
 	height: 40px;
-	size: 20px;
-	font-size: 14px; padding-left : 20px;
+	font-size: 14px; 
 	background: white;
 	border-width: 0px;
 	border-radius: 5px;
 	background: white;
 	padding-left: 20px;
 }
+
+.verifycode{
+	width: 180px;
+	height: 40px;
+	font-size: 14px; 
+	background: white;
+	border-width: 0px;
+	border-radius: 5px;
+	background: white;
+	float: left;
+	margin-left: 36px;
+	padding-left: 20px;
+}
+
 
 .loginbutton {
 	width: 390px;
@@ -61,4 +74,12 @@ body {
 	margin-right: 40px;
 	color: darkgray;
 	font-size: 14px;
+}
+
+#imagecode{
+	float: right;
+	margin-right: 36px;
+	height: 40px;
+	width: 165px;
+
 }

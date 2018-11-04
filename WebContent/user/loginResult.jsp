@@ -23,6 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    登陆失败<br>
+        <%=session.getAttribute("loginResult") %>>
   </body>
 </html>
