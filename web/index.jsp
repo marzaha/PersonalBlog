@@ -21,7 +21,7 @@
         }
     %>
 
-    <form action="LoginServlet" methon="post" onsubmit="return checkLogin()">
+    <form action="<%=request.getContextPath()%>/LoginServlet" methon="post" onsubmit="return checkLogin()">
         <div class="inputitem">
             <input class="input" id="username" name="username" type="text" maxlength="20" placeholder="请输入用户名">
         </div>
@@ -52,7 +52,6 @@
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
         var verifycodeinput = document.getElementById("verifycode").value;
-        var verifycode = '<%=session.getAttribute("verifycode")%>';
         if (username == "") {
             alert("请输入用户名")
             return false;

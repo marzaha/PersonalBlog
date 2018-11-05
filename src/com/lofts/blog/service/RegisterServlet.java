@@ -14,39 +14,48 @@ import com.lofts.blog.dao.UserDao;
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public RegisterServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    public RegisterServlet() {
+        super();
+    }
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doPost(req, resp);
-	}
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("utf-8");
-		resp.setContentType("text/html;charset=utf-8");
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setContentType("text/html;charset=utf-8");
 
-		int id = Integer.valueOf(req.getParameter("id"));
-		String name = req.getParameter("username");
-		String password = req.getParameter("password");
-		int role = Integer.valueOf(req.getParameter("role"));
+        String name = req.getParameter("username");
+        String password = req.getParameter("password");
+        String inputcode = req.getParameter("verifycode");
+        String inputcodeUpper = inputcode.toUpperCase();
+        String sessionCode = (String) req.getSession().getAttribute("verifycode");
 
-		User user = new User();
-		user.setId(id);
-		user.setName(name);
-		user.setPassword(password);
-		user.setRole(role);
-		UserDao userDAO = new UserDao();
-		userDAO.addUser(user);
+        if (!inputcodeUpper.equals(sessionCode)) {
+            req.getSession().setAttribute("registerresult", "验证码错误");
+            req.getRequestDispatcher("register.jsp").forward(req, resp);
+        }
 
-		System.out.println("注册成功");
-		req.getRequestDispatcher("/index.jsp").forward(req, resp);
+        UserDao userDAO = new UserDao();
+        String result = userDAO.queryUser(name);
+        if (result != null && !result.isEmpty()) {
+            req.getSession().setAttribute("registerresult", "该用户名已被注册");
+            req.getRequestDispatcher("register.jsp").forward(req, resp);
+        }
 
-	}
+        User user = new User();
+        user.setName(name);
+        user.setPassword(password);
+        userDAO.register(user);
+
+        req.getSession().setAttribute("registerresult", "");
+        req.getRequestDispatcher("/index.jsp").forward(req, resp);
+        System.out.println("注册成功");
+    }
 
 }

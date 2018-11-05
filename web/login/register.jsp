@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE HTML>
@@ -23,7 +22,7 @@
         }
     %>
 
-    <form action="RegisterServlet" methon="post" onsubmit="return checkLogin()">
+    <form action="<%=request.getContextPath()%>/RegisterServlet" methon="post" onsubmit="return checkRegister()">
         <div class="inputitem">
             <input class="input" id="username" name="username" type="text" maxlength="20" placeholder="请输入用户名">
         </div>
@@ -52,17 +51,25 @@
         document.getElementById("imagecode").src = "<%=request.getContextPath()%>/VerifyCodeServlet?" + time;
     }
 
-    function checkLogin() {
+    function checkRegister() {
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
+        var repassword = document.getElementById("repassword").value;
         var verifycodeinput = document.getElementById("verifycode").value;
-        var verifycode = '<%=session.getAttribute("verifycode")%>';
         if (username == "") {
             alert("请输入用户名")
             return false;
         }
         if (password == "") {
             alert("请输入密码")
+            return false;
+        }
+        if (repassword == "") {
+            alert("请再次输入密码")
+            return false;
+        }
+        if (password != repassword) {
+            alert("两次密码输入不一致")
             return false;
         }
         if (verifycodeinput == "") {
