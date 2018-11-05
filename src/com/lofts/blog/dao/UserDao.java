@@ -35,7 +35,7 @@ public class UserDao {
             resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 user = new User();
-                user.setName(resultSet.getString("name"));
+                user.setName(resultSet.getString("username"));
                 user.setPassword(resultSet.getString("password"));
                 System.out.print("登录成功");
             } else {

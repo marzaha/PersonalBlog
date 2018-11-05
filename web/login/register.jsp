@@ -4,15 +4,15 @@
 <html>
 <head>
     <title>FashionLife注册</title>
-    <link rel="stylesheet" href="css/register.css" type="text/css"></link>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/login/css/register.css" type="text/css"></link>
 </head>
 
 <body>
 <div id="register">
     <%
-        if (session.getAttribute("loginresult") != null) {
+        if (session.getAttribute("registerresult") != null) {
     %>
-    <p class="registerresult"><%=session.getAttribute("loginresult") %>
+    <p class="registerresult"><%=session.getAttribute("registerresult") %>
     </p>
     <%
     } else {
@@ -40,7 +40,7 @@
             <input class="registerbutton" name="register" onclick="return checkLogin();" type="submit" value="注册">
         </div>
     </form>
-    <a href="../index.jsp" class="gologinbutton">去登陆</a>
+    <a href="<%=request.getContextPath()%>/index.jsp" class="gologinbutton">去登陆</a>
 </div>
 </body>
 

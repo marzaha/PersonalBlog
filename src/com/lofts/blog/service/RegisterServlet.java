@@ -38,14 +38,16 @@ public class RegisterServlet extends HttpServlet {
 
         if (!inputcodeUpper.equals(sessionCode)) {
             req.getSession().setAttribute("registerresult", "验证码错误");
-            req.getRequestDispatcher("register.jsp").forward(req, resp);
+            req.getRequestDispatcher("/login/register.jsp").forward(req, resp);
+            return;
         }
 
         UserDao userDAO = new UserDao();
         String result = userDAO.queryUser(name);
         if (result != null && !result.isEmpty()) {
             req.getSession().setAttribute("registerresult", "该用户名已被注册");
-            req.getRequestDispatcher("register.jsp").forward(req, resp);
+            req.getRequestDispatcher("/login/register.jsp").forward(req, resp);
+            return;
         }
 
         User user = new User();

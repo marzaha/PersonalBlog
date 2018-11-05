@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>FashionLife登录</title>
-    <link rel="stylesheet" href="login/css/login.css" type="text/css"></link>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/login/css/login.css" type="text/css"></link>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
             <input class="loginbutton" name="login" onclick="return checkLogin();" type="submit" value="登录">
         </div>
     </form>
-    <a href="login/register.jsp" class="rigbutton">用户注册</a>
+    <a href="<%=request.getContextPath()%>/login/register.jsp" class="rigbutton">用户注册</a>
     <a href="#" onclick='return alert("敬请期待")' class="forbutton">忘记密码？</a>
 </div>
 </body>
