@@ -1,0 +1,85 @@
+body {
+	background-image: url(../img/img_index_bg.jpg);
+	background-size: 100%;
+}
+
+#login {
+	background-color: rgba(255, 255, 255, 0.4);
+	border-radius: 8px;
+	width: 460px;
+	height: 260px;
+	margin: auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin-top: 240px;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px
+}
+
+.inputitem {
+	width: 100%;
+	height: 20%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	float: left;
+	position: relative;
+}
+
+.input {
+	width: 370px;
+	height: 40px;
+	font-size: 14px; 
+	background: white;
+	border-width: 0px;
+	border-radius: 5px;
+	background: white;
+	padding-left: 20px;
+}
+
+.verifycode{
+	width: 180px;
+	height: 40px;
+	font-size: 14px; 
+	background: white;
+	border-width: 0px;
+	border-radius: 5px;
+	background: white;
+	float: left;
+	margin-left: 36px;
+	padding-left: 20px;
+}
+
+
+.loginbutton {
+	width: 390px;
+	height: 40px;
+	border-width: 0px;
+	border-radius: 5px;
+	background-color: #46A5FF;
+	color: white;
+	font-size: 16px;
+}
+
+.rigbutton {
+	float: left;
+	margin-left: 40px;
+	color: darkgray;
+	font-size: 14px;
+}
+
+.forbutton {
+	float: right;
+	margin-right: 40px;
+	color: darkgray;
+	font-size: 14px;
+}
+
+#imagecode{
+	float: right;
+	margin-right: 36px;
+	height: 40px;
+	width: 165px;
+
+}
