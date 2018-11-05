@@ -1,8 +1,0 @@
-{
-    "git.autorefresh": false,
-    "git.confirmForcePush": false,
-    "git.confirmSync": false,
-    "git.decorations.enabled": false,
-    "git.detectSubmodules": false,
-    "git.enabled": false
-}
