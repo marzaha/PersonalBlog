@@ -3,11 +3,11 @@ body {
     background-size: 100%;
 }
 
-#login {
+#register {
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 8px;
     width: 460px;
-    height: 320px;
+    height: 360px;
     margin: auto;
     position: absolute;
     left: 0;
@@ -51,7 +51,7 @@ body {
     padding-left: 20px;
 }
 
-.loginbutton {
+.registerbutton {
     width: 390px;
     height: 40px;
     border-width: 0px;
@@ -61,14 +61,7 @@ body {
     font-size: 16px;
 }
 
-.rigbutton {
-    float: left;
-    margin-left: 40px;
-    color: darkgray;
-    font-size: 14px;
-}
-
-.forbutton {
+.gologinbutton {
     float: right;
     margin-right: 40px;
     color: darkgray;
@@ -82,7 +75,7 @@ body {
     width: 165px;
 }
 
-.loginresult {
+.registerresult {
     color: red;
     font-size: 12px;
 }

@@ -1,27 +1,29 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>FashionLife登录</title>
-    <link rel="stylesheet" href="login/css/login.css" type="text/css"></link>
+    <title>FashionLife注册</title>
+    <link rel="stylesheet" href="css/register.css" type="text/css"></link>
 </head>
 
 <body>
-<div id="login">
+<div id="register">
     <%
         if (session.getAttribute("loginresult") != null) {
     %>
-    <p class="loginresult"><%=session.getAttribute("loginresult") %></p>
+    <p class="registerresult"><%=session.getAttribute("loginresult") %>
+    </p>
     <%
     } else {
     %>
-    <p class="loginresult">&nbsp;&nbsp;</p>
+    <p class="registerresult">&nbsp;&nbsp;</p>
     <%
         }
     %>
 
-    <form action="LoginServlet" methon="post" onsubmit="return checkLogin()">
+    <form action="RegisterServlet" methon="post" onsubmit="return checkLogin()">
         <div class="inputitem">
             <input class="input" id="username" name="username" type="text" maxlength="20" placeholder="请输入用户名">
         </div>
@@ -29,15 +31,17 @@
             <input class="input" id="password" name="password" type="password" maxlength="20" placeholder="请输入密码">
         </div>
         <div class="inputitem">
+            <input class="input" id="repassword" name="repassword" type="password" maxlength="20" placeholder="请再次输入密码">
+        </div>
+        <div class="inputitem">
             <input class="verifycode" id="verifycode" name="verifycode" type="text" maxlength="4" placeholder="请输入验证码">
             <img id="imagecode" src="<%=request.getContextPath()%>/VerifyCodeServlet" onclick="refreshVerifyCode()" alt="验证码"/>
         </div>
         <div class="inputitem">
-            <input class="loginbutton" name="login" onclick="return checkLogin();" type="submit" value="登录">
+            <input class="registerbutton" name="register" onclick="return checkLogin();" type="submit" value="注册">
         </div>
     </form>
-    <a href="login/register.jsp" class="rigbutton">用户注册</a>
-    <a href="#" onclick='return alert("敬请期待")' class="forbutton">忘记密码？</a>
+    <a href="../index.jsp" class="gologinbutton">去登陆</a>
 </div>
 </body>
 
