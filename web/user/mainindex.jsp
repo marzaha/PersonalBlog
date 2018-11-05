@@ -1,14 +1,18 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>FashionLife首页</title>
-    <link rel="stylesheet" href="login/css/register.css" type="text/css"></link>
+    <title>FashionLife空间</title>
+    <link rel="stylesheet" type="text/css"></link>
 </head>
 
-<body>
-       <p>用户首页</p>
-</body>
+<frameset rows="20%,*">
+    <frame src="<%=request.getContextPath()%>/user/maintop.jsp"/>
+    <frameset cols="20%,*">
+        <frame src="<%=request.getContextPath()%>/user/mainleft.jsp"/>
+        <frame name="right"/>
+    </frameset>
+</frameset>
+
 </html>
