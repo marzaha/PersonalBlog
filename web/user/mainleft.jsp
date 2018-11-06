@@ -4,12 +4,13 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/user/css/main.css" type="text/css"></link>
 </head>
-<body>
+<body id="mainleftbody">
 <div id="mainleft">
-    <div>用户名</div>
-    <div>昵称</div>
-    <div>出生年月</div>
+    <div >
+        <img id="headimg" src="<%=request.getContextPath()%>/user/img/img_default_head.jpg">
+    </div>
 
 </div>
 </body>

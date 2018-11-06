@@ -6,7 +6,7 @@
     <title>FashionLife空间</title>
 </head>
 
-<frameset rows="20%,*" cols="*" frameborder="no" border="0" framespacing="0">
+<frameset rows="18%,*" cols="*" frameborder="no" border="0" framespacing="0">
     <frame src="<%=request.getContextPath()%>/user/maintop.jsp" name="maintop" scrolling="no" noresize="noresize" id="maintop"/>
     <frameset cols="15%,15%,50%,15%" frameborder="no" border="0" framespacing="0">
         <frame src="<%=request.getContextPath()%>/user/mainempty.jsp" name="leftempty" scrolling="no" noresize="noresize" id="leftempty"/>
