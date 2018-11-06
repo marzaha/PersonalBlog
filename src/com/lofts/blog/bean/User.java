@@ -10,12 +10,20 @@ package com.lofts.blog.bean;
 public class User {
 
 	private Integer id;
-	private String name;
+	private String username;
 	private String password;
-	private int role;
+	private String headimage;
+	private String nickname;
+	private String sex;
+	private String birthday;
+	private String email;
+	private String address;
+	private String hobby;
+	private String registerdate;
+	private String constellation;
+
 
 	public User() {
-		super();
 	}
 
 	public Integer getId() {
@@ -26,12 +34,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -42,12 +50,75 @@ public class User {
 		this.password = password;
 	}
 
-	public int getRole() {
-		return role;
+	public String getHeadimage() {
+		return headimage;
 	}
 
-	public void setRole(int role) {
-		this.role = role;
+	public void setHeadimage(String headimage) {
+		this.headimage = headimage;
 	}
 
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public String getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getHobby() {
+		return hobby;
+	}
+
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+
+	public String getRegisterdate() {
+		return registerdate;
+	}
+
+	public void setRegisterdate(String registerdate) {
+		this.registerdate = registerdate;
+	}
+
+	public String getConstellation() {
+		return constellation;
+	}
+
+	public void setConstellation(String constellation) {
+		this.constellation = constellation;
+	}
 }

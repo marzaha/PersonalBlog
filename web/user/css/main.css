@@ -47,7 +47,7 @@
 }
 
 #navigation a {
-    font-size: 20px;
+    font-size: 18px;
     color: white;
 }
 
@@ -58,18 +58,10 @@
 }
 
 #mainleft {
-    width: 100%;
+    width: 220px;
     height: 500px;
     margin-left: 30px;
     margin-top: 30px;
-}
-
-#headdiv {
-    width: 100px;
-    height: 100px;
-    border-color: darkgrey;
-    border-radius: 8px;
-    border-width: 2px;
 }
 
 #headimg {
@@ -79,3 +71,40 @@
     border-radius: 8px;
     border-width: 2px;
 }
+
+#headdiv a {
+    position: relative;
+    font-size: 10px;
+    color: blue;
+    margin-left: 5px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.userinfo {
+    position: relative;
+    width: 200px;
+    height: auto;
+    margin-top: 5px;
+}
+
+.userinfo .tag {
+    width: 50px;
+    height: auto;
+    display: -moz-inline-box;
+    display: inline-block;
+    font-size: 12px;
+    color: grey;
+}
+
+.userinfo .uservalue {
+    width: 140px;
+    height: auto;
+    display: -moz-inline-box;
+    display: inline-block;
+    font-size: 12px;
+    color: black;
+}
+
+
+

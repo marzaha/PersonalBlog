@@ -35,7 +35,7 @@ public class UserDao {
             resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 user = new User();
-                user.setName(resultSet.getString("username"));
+                user.setUsername(resultSet.getString("username"));
                 user.setPassword(resultSet.getString("password"));
                 System.out.print("登录成功");
             } else {
@@ -61,7 +61,7 @@ public class UserDao {
             connection = JdbcUtils.getConnection();
             String sql = "insert into user(username,password) values (?,?);";
             statement = (PreparedStatement) connection.prepareStatement(sql);
-            statement.setString(1, user.getName());
+            statement.setString(1, user.getUsername());
             statement.setString(2, user.getPassword());
             statement.executeUpdate();
         } catch (SQLException e) {
