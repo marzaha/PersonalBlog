@@ -1,0 +1,56 @@
+#maintop {
+    width: 70%;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../img/img_main_banner.jpg);
+    background-size: 100%, 100%;
+}
+
+#mainlogo {
+    width: 400px;
+    height: 100%;
+    position: absolute;
+}
+
+#logo {
+    width: 400px;
+    height: 80px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+#mainnav {
+    width: 800px;
+    height: 100%;
+    float: right;
+}
+
+#navigation {
+    width: 700px;
+    height: 30px;
+    bottom: 0px;
+    right: 0px;
+    position: absolute;
+}
+
+#navigation div {
+    display: inline-flex;
+    width: 100px;
+    height: 30px;
+}
+
+#navigation a {
+    font-size: 20px;
+    color: white;
+}
+
+#mainleft {
+    padding: 15px;
+}

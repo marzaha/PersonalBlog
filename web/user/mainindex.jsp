@@ -4,14 +4,15 @@
 <html>
 <head>
     <title>FashionLife空间</title>
-    <link rel="stylesheet" type="text/css"></link>
 </head>
 
-<frameset rows="20%,*">
-    <frame src="<%=request.getContextPath()%>/user/maintop.jsp"/>
-    <frameset cols="20%,*">
-        <frame src="<%=request.getContextPath()%>/user/mainleft.jsp"/>
-        <frame name="right"/>
+<frameset rows="20%,*" cols="*" frameborder="no" border="0" framespacing="0">
+    <frame src="<%=request.getContextPath()%>/user/maintop.jsp" name="maintop" scrolling="no" noresize="noresize" id="maintop"/>
+    <frameset cols="15%,15%,50%,15%" frameborder="no" border="0" framespacing="0">
+        <frame src="<%=request.getContextPath()%>/user/mainempty.jsp" name="leftempty" scrolling="no" noresize="noresize" id="leftempty"/>
+        <frame src="<%=request.getContextPath()%>/user/mainleft.jsp" name="mainleft" scrolling="No" noresize="noresize" id="mainleft"/>
+        <frame src="<%=request.getContextPath()%>/user/maincontent.jsp" name="maincontent" id="maincontent"/>
+        <frame src="<%=request.getContextPath()%>/user/mainempty.jsp" name="rightempty" scrolling="no" noresize="noresize" id="rightempty"/>
     </frameset>
 </frameset>
 

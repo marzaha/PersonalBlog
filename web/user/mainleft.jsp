@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE HTML>
@@ -7,8 +6,11 @@
     <title>Title</title>
 </head>
 <body>
-<a href="#">品牌管理</a><br /><br />
-<a href="#">商品管理</a><br /><br />
-<a href="#">分类管理</a>
+<div id="mainleft">
+    <div>用户名</div>
+    <div>昵称</div>
+    <div>出生年月</div>
+
+</div>
 </body>
 </html>

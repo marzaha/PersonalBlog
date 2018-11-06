@@ -53,7 +53,8 @@ public class LoginServlet extends HttpServlet {
         if (user != null) {
             req.getSession().setAttribute("loginresult", "&nbsp;&nbsp;");
             req.getSession().setAttribute("username", username);
-            req.getRequestDispatcher("/user/mainindex.jsp").forward(req, resp);
+//            req.getRequestDispatcher("/user/mainindex.jsp").forward(req, resp);
+            resp.sendRedirect("user/mainindex.jsp");
         } else {
             req.getSession().setAttribute("loginresult", "用户名或密码错误");
             req.getRequestDispatcher("index.jsp").forward(req, resp);
