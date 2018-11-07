@@ -1,6 +1,7 @@
 package com.lofts.blog.service;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.lofts.blog.bean.User;
 import com.lofts.blog.dao.UserDao;
+import com.lofts.blog.utils.DateUtil;
 
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
@@ -53,6 +55,7 @@ public class RegisterServlet extends HttpServlet {
         User user = new User();
         user.setUsername(name);
         user.setPassword(password);
+        user.setRegisterdate(DateUtil.getCurrentDate());
         userDAO.register(user);
 
         req.getSession().setAttribute("registerresult", "");

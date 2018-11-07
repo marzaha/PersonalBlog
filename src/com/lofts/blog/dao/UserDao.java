@@ -17,6 +17,7 @@ public class UserDao {
 
     /**
      * 用户登录
+     *
      * @param name
      * @param password
      * @return
@@ -52,6 +53,7 @@ public class UserDao {
 
     /**
      * 用户注册
+     *
      * @param user
      */
     public void register(User user) {
@@ -59,13 +61,13 @@ public class UserDao {
         PreparedStatement statement = null;
         try {
             connection = JdbcUtils.getConnection();
-            String sql = "insert into user(username,password) values (?,?);";
+            String sql = "insert into user(username,password,registerdate) values (?,?,?);";
             statement = (PreparedStatement) connection.prepareStatement(sql);
             statement.setString(1, user.getUsername());
             statement.setString(2, user.getPassword());
+            statement.setString(3, user.getRegisterdate());
             statement.executeUpdate();
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } finally {
             JdbcUtils.close(statement, connection);
@@ -74,6 +76,7 @@ public class UserDao {
 
     /**
      * 用户名查询
+     *
      * @param userName
      * @return
      */
