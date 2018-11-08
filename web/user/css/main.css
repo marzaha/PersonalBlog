@@ -90,15 +90,15 @@
     position: relative;
     width: 200px;
     height: auto;
-    margin-top: 5px;
+    margin-top: 20px;
 }
 
-.userinfo .tag {
-    width: 50px;
+.tag {
+    width: 60px;
     height: auto;
     display: -moz-inline-box;
     display: inline-block;
-    font-size: 12px;
+    font-size: 14px;
     color: grey;
 }
 
@@ -107,20 +107,89 @@
     height: auto;
     display: -moz-inline-box;
     display: inline-block;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: bold;
     color: black;
 }
 
-#maincontent{
-    width: 800px;
-    height: 100%;
-    padding: 30px;
+#maincontent {
+    width: 700px;
+    height: 1000px;
+    padding: 50px;
 }
 
 #editheaddiv {
     width: 800px;
-    height: 100px;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
 }
+
+#imagefile {
+    display: none;
+    vertical-align: bottom;
+}
+
+#imagepath {
+    margin-left: 10px;
+    vertical-align: bottom;
+    font-size: 14px;
+    height: 20px;
+    width: auto;
+}
+
+#upload {
+    margin-left: 5px;
+    vertical-align: bottom;
+    color: white;
+    border-width: 0px;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #46A5FF;
+}
+
+.userinfoedit {
+    margin-top: 20px;
+}
+
+.inputedit {
+    margin-left: 20px;
+    font-size: 14px;
+    color: black;
+    height: 20px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.radiovalue{
+    font-size: 14px;
+    color: black;
+    vertical-align: middle;
+}
+
+.selectedit {
+    margin-left: 20px;
+    font-size: 14px;
+    height: 30px;
+    width: 320px;
+    vertical-align: middle;
+}
+
+#hobbydiv{
+    margin-left: 80px;
+    top: 0px;
+    display: inline-block;
+}
+
+.inputcheckbox{
+    font-size: 14px;
+    color: black;
+    height: 20px;
+    width: auto;
+    vertical-align: middle;
+}
+
 
 
 

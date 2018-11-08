@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50622
 File Encoding         : 65001
 
-Date: 2018-11-07 00:03:43
+Date: 2018-11-08 17:31:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -3577,6 +3577,53 @@ CREATE TABLE `diary` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for hobby
+-- ----------------------------
+DROP TABLE IF EXISTS `hobby`;
+CREATE TABLE `hobby` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `hobbyname` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of hobby
+-- ----------------------------
+INSERT INTO `hobby` VALUES ('1', '旅游');
+INSERT INTO `hobby` VALUES ('2', '摄影');
+INSERT INTO `hobby` VALUES ('3', '跑步');
+INSERT INTO `hobby` VALUES ('4', '音乐');
+INSERT INTO `hobby` VALUES ('5', '舞蹈');
+INSERT INTO `hobby` VALUES ('6', '阅读');
+INSERT INTO `hobby` VALUES ('7', '茶道');
+INSERT INTO `hobby` VALUES ('8', '游泳');
+INSERT INTO `hobby` VALUES ('9', '篮球');
+INSERT INTO `hobby` VALUES ('10', '足球');
+INSERT INTO `hobby` VALUES ('11', '电影');
+INSERT INTO `hobby` VALUES ('12', '绘画');
+INSERT INTO `hobby` VALUES ('13', '电子游戏');
+INSERT INTO `hobby` VALUES ('14', '书法');
+INSERT INTO `hobby` VALUES ('15', '登山');
+INSERT INTO `hobby` VALUES ('16', '烹饪');
+INSERT INTO `hobby` VALUES ('17', '乒乓球');
+INSERT INTO `hobby` VALUES ('18', '美容');
+
+-- ----------------------------
+-- Table structure for imagefile
+-- ----------------------------
+DROP TABLE IF EXISTS `imagefile`;
+CREATE TABLE `imagefile` (
+  `id` int(11) NOT NULL,
+  `imagename` varchar(50) DEFAULT NULL,
+  `imagepath` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of imagefile
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for province
 -- ----------------------------
 DROP TABLE IF EXISTS `province`;
@@ -3643,8 +3690,10 @@ CREATE TABLE `user` (
   `hobby` varchar(50) DEFAULT NULL,
   `registerdate` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
+INSERT INTO `user` VALUES ('1', 'jiang', '123', null, null, null, null, null, null, null, null, null);
+INSERT INTO `user` VALUES ('2', 'user', '123', null, null, null, null, null, null, null, null, '2018-11-07');
