@@ -19,8 +19,12 @@
 <div id="maincontent">
     <div id="editheaddiv">
         <h4>编辑个人信息</h4>
+
         <img id="headimg" src="<%=request.getContextPath()%>/user/img/img_default_head.jpg">
-        <input type="file" id="imagefile" name="imagefile" enctype="multipart/form-data" accept="image/jpeg" onchange="changeImagePath()">
+        <form action="<%=request.getContextPath()%>/UploadImageServlet" method="post" enctype="multipart/form-data">
+        <input type="file" id="imagefile" name="imagefile" accept="image/jpeg" onchange="changeImagePath()">
+        <input type="submit"  value="提交">
+        </form>
         <input type="text" id="imagepath" name="imagepath" size="40" readonly>
         <input type="button" name="upload" id="upload" value="上传头像" onclick="uploadImage()">
     </div>

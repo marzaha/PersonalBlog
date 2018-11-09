@@ -1,5 +1,10 @@
 package com.lofts.blog.service;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
@@ -10,52 +15,83 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
 import java.util.UUID;
 
 /**
  * 图片上传
  */
 
-@WebServlet("/LoginServlet")
+@WebServlet("/UploadImageServlet")
 public class UploadImageServlet extends HttpServlet {
 
-    private static final String IMAGE_SAVE_PATH = "upload/image/";
+    private static final String IMAGE_UPLOAD_DIR = "upload/image/";
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private static final String TEMP_UPLOAD_DIR = "upload/temp/";
+
+    private static final Long TOTAL_FILE_MAXSIZE = 10000000L;
+
+    private static final int SINGLE_FILE_MAXSIZE = 2 * 1024 * 1024;
+
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         doGet(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
-
         ServletContext context = getServletConfig().getServletContext();
-        String fileName = UUID.randomUUID() + ".jpeg";
-        String realPath = context.getRealPath(IMAGE_SAVE_PATH) + "/";
-        String filePath = realPath + fileName;
 
-        File fileDir = new File(realPath);
-        if (!fileDir.exists()) {
-            fileDir.mkdir();
+        String fileName = UUID.randomUUID() + ".jpg";
+        String realPath = context.getRealPath(IMAGE_UPLOAD_DIR) + "/";
+        String tempPath = context.getRealPath(TEMP_UPLOAD_DIR) + "/";
+        File realPathFile = new File(realPath);
+        File tempPathFile = new File(tempPath);
+        if (!realPathFile.exists()) {
+            realPathFile.mkdirs();
         }
-        FileOutputStream out = new FileOutputStream(new File(fileName));
-        ServletInputStream inputStream = request.getInputStream();
-        byte[] b = new byte[1024];
-        int len = 0;
-        while ((len = inputStream.read(b)) != -1) {
-            out.write(b, 0, len);
+        if (!tempPathFile.exists()) {
+            tempPathFile.mkdirs();
         }
-
-        out.close();
-        inputStream.close();
+        // 文件对象的工厂类
+        DiskFileItemFactory factory = new DiskFileItemFactory();
+        // 设置最大上传大小
+        factory.setSizeThreshold(SINGLE_FILE_MAXSIZE);
+        // 将临时文件夹交给文件对象的工厂类
+        factory.setRepository(tempPathFile);
+        // 创建一个上传文件的处理者
+        ServletFileUpload upload = new ServletFileUpload(factory);
+        // 设置所有请求的总大小
+        upload.setSizeMax(TOTAL_FILE_MAXSIZE);
+        // 解析request
+        List<FileItem> items;
 
         try {
-            request.setAttribute("path", IMAGE_SAVE_PATH + fileName);
+            items = upload.parseRequest(request);
+            Iterator<FileItem> iterator = items.iterator();
+            while (iterator.hasNext()) {
+                FileItem item = iterator.next();
+                if (!item.isFormField()) {
+                    try {
+                        item.write(new File(realPath + fileName));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        } catch (FileUploadException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            request.setAttribute("path", IMAGE_UPLOAD_DIR + fileName);
             request.getRequestDispatcher("/user/edituserinfo.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         }
-
     }
+
 
 }
