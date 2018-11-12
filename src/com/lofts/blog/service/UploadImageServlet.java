@@ -1,5 +1,6 @@
 package com.lofts.blog.service;
 
+import com.alibaba.fastjson.JSON;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -15,9 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
-import java.util.UUID;
+import java.io.PrintWriter;
+import java.util.*;
 
 /**
  * 图片上传
@@ -41,10 +41,12 @@ public class UploadImageServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html;charset=utf-8");
-        ServletContext context = getServletConfig().getServletContext();
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json;charset=UTF-8");
 
-        String fileName = UUID.randomUUID() + ".jpg";
+        ServletContext context = getServletConfig().getServletContext();
+        PrintWriter out = response.getWriter();
+
         String realPath = context.getRealPath(IMAGE_UPLOAD_DIR) + "/";
         String tempPath = context.getRealPath(TEMP_UPLOAD_DIR) + "/";
         File realPathFile = new File(realPath);
@@ -71,26 +73,29 @@ public class UploadImageServlet extends HttpServlet {
         try {
             items = upload.parseRequest(request);
             Iterator<FileItem> iterator = items.iterator();
+            List<Map<String, String>> imageList = new ArrayList<>();
             while (iterator.hasNext()) {
                 FileItem item = iterator.next();
+                String fileName = UUID.randomUUID() + ".jpg";
                 if (!item.isFormField()) {
                     try {
                         item.write(new File(realPath + fileName));
+
+                        Map<String, String> map = new HashMap<>();
+                        map.put("imagepath", IMAGE_UPLOAD_DIR + fileName);
+                        imageList.add(map);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
             }
+            out.print(JSON.toJSONString(imageList));
         } catch (FileUploadException e) {
-            e.printStackTrace();
+            out.print("上传失败");
         }
+        out.close();
+        out.flush();
 
-        try {
-            request.setAttribute("path", IMAGE_UPLOAD_DIR + fileName);
-            request.getRequestDispatcher("/user/edituserinfo.jsp").forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        }
     }
 
 

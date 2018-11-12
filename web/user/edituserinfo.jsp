@@ -7,6 +7,9 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/user/css/main.css" type="text/css"></link>
+    <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/ajaxfileupload.js"></script>
+    <script type="text/javascript" src="../layer/layer.js"></script>
 </head>
 
 <%
@@ -17,16 +20,12 @@
 
 <body>
 <div id="maincontent">
+    <h4>编辑个人信息</h4>
     <div id="editheaddiv">
-        <h4>编辑个人信息</h4>
-
         <img id="headimg" src="<%=request.getContextPath()%>/user/img/img_default_head.jpg">
-        <form action="<%=request.getContextPath()%>/UploadImageServlet" method="post" enctype="multipart/form-data">
-        <input type="file" id="imagefile" name="imagefile" accept="image/jpeg" onchange="changeImagePath()">
-        <input type="submit"  value="提交">
-        </form>
+        <input type="file" id="imagefile" name="imagefile" accept="image/jpeg" onchange="updateImage()">
         <input type="text" id="imagepath" name="imagepath" size="40" readonly>
-        <input type="button" name="upload" id="upload" value="上传头像" onclick="uploadImage()">
+        <input type="button" name="upload" id="upload" value="选择图片" onclick="chooseImage()">
     </div>
     <div class="userinfoedit">
         <span class="tag">用户名</span>
@@ -46,7 +45,8 @@
         <select class="selectedit" size="1" name="birthday">
             <option>--请选择--</option>
             <%for (int i = 0; i < birthdaylist.size(); i++) {%>
-                <option value="<%=birthdaylist.get(i)%>"><%=birthdaylist.get(i)%></option>
+            <option value="<%=birthdaylist.get(i)%>"><%=birthdaylist.get(i)%>
+            </option>
             <%}%>
         </select>
     </div>
@@ -55,17 +55,16 @@
         <select class="selectedit" size="1" name="constellation">
             <option>--请选择--</option>
             <%for (int i = 0; i < constellationlist.size(); i++) {%>
-                <option value="<%=constellationlist.get(i)%>"><%=constellationlist.get(i)%></option>
+            <option value="<%=constellationlist.get(i)%>"><%=constellationlist.get(i)%>
+            </option>
             <%}%>
         </select>
     </div>
     <div class="userinfoedit">
         <span class="tag">爱好</span>
-        <div id="hobbydiv">
         <%for (int i = 0; i < hobbylist.size(); i++) {%>
-            <input type="checkbox" class="inputcheckbox" name="hobby" value="<%=hobbylist.get(i)%>"><span class="radiovalue"><%=hobbylist.get(i)%></span>
+        <input type="checkbox" class="inputedit" name="hobby" value="<%=hobbylist.get(i)%>"><span class="radiovalue"><%=hobbylist.get(i)%></span>
         <%}%>
-        </div>
     </div>
     <div class="userinfoedit">
         <span class="tag">Email</span>
@@ -86,18 +85,41 @@
 
 <script type="text/javascript">
     function uploadImage() {
+        layer.load(2);
+        $.ajaxFileUpload({
+            type: 'POST',
+            url: '<%=request.getContextPath()%>/UploadImageServlet',
+            secureurl: false,
+            fileElementId: 'imagefile',
+            dataType: 'text',
+            success: function (response) {
+                var data = response.replace(/<.*?>/ig, "");
+                var obj = JSON.parse(data);
+                document.getElementById("imagepath").value = obj[0].imagepath;
+
+                layer.closeAll();
+            },
+            error: function (response) {
+                alert(response)
+                layer.close(tip);
+            }
+        })
+    }
+
+    function chooseImage() {
         document.getElementById("imagefile").click();
     }
 
-    function changeImagePath() {
+    function updateImage() {
         document.getElementById("imagepath").value = document.getElementById("imagefile").value;
-
         var file = document.getElementById("imagefile").files[0];
         var reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = function (ev) {
             document.getElementById("headimg").src = ev.target.result;
         }
+
+        uploadImage();
     }
 
 </script>
