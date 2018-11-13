@@ -36,6 +36,7 @@ public class UserDao {
             resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 user = new User();
+                user.setId(resultSet.getInt("id"));
                 user.setUsername(resultSet.getString("username"));
                 user.setPassword(resultSet.getString("password"));
                 System.out.print("登录成功");
@@ -104,6 +105,34 @@ public class UserDao {
         }
         System.out.print("用户注册异常");
         return "";
+    }
+
+    public static User saveUserInfo(User user) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = JdbcUtils.getConnection();
+            String sql = "update user set headimage=?,nickname=?,sex=?,birthday=?,email=?,address=?,constellation=?,hobby=? where id=?";
+            statement = (PreparedStatement) connection.prepareStatement(sql);
+            statement.setString(1, user.getHeadimage());
+            statement.setString(2, user.getNickname());
+            statement.setString(3, user.getSex());
+            statement.setString(4, user.getBirthday());
+            statement.setString(5, user.getEmail());
+            statement.setString(6, user.getAddress());
+            statement.setString(7, user.getConstellation());
+            statement.setString(8, user.getHobby());
+            statement.setInt(9, user.getId());
+            statement.executeUpdate();
+
+            return user;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JdbcUtils.close(statement, connection);
+        }
+
+        return null;
     }
 
 

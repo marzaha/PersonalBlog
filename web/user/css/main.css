@@ -108,7 +108,7 @@
     display: -moz-inline-box;
     display: inline-block;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: normal;
     color: black;
 }
 
@@ -141,7 +141,7 @@
     width: auto;
 }
 
-#upload {
+.bluebutton {
     margin-left: 5px;
     vertical-align: bottom;
     color: white;
@@ -165,7 +165,7 @@
     vertical-align: middle;
 }
 
-.radiovalue{
+.radiovalue {
     font-size: 14px;
     color: black;
     vertical-align: middle;
@@ -179,18 +179,34 @@
     vertical-align: middle;
 }
 
-#hobbydiv{
+.selectcityedit {
+    margin-left: 20px;
+    font-size: 14px;
+    height: 30px;
+    width: 80px;
+    vertical-align: middle;
+}
+
+#hobbydiv {
     margin-left: 80px;
     top: 0px;
     display: inline-block;
 }
 
-.inputcheckbox{
+.inputcheckbox {
     font-size: 14px;
     color: black;
     height: 20px;
     width: auto;
     vertical-align: middle;
+}
+
+input[type='submit'] {
+    top: 30px;
+    width: 80px;
+    height: auto;
+    position: relative;
+    text-align: center;
 }
 
 
