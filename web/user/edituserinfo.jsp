@@ -41,7 +41,7 @@
         </div>
         <div class="userinfoedit">
             <span class="tag">用户名</span>
-            <input type="text" class="inputedit" id="username" name="username" size="40" value="${username}" readonly>
+            <input type="text" class="inputedit" id="username" name="username" size="40" value="${user.username}" readonly>
         </div>
         <div class="userinfoedit">
             <span class="tag">昵称</span>
@@ -49,8 +49,8 @@
         </div>
         <div class="userinfoedit">
             <span class="tag">性别</span>
-            <input type="radio" class="inputedit" id="sexmale" name="sex" value="1" checked><span class="radiovalue">男</span>
-            <input type="radio" class="inputedit" id="sexfemale" name="sex" value="0"><span class="radiovalue">女</span>
+            <input type="radio" class="inputedit" id="sexmale" name="sex" value="男" checked><span class="radiovalue">男</span>
+            <input type="radio" class="inputedit" id="sexfemale" name="sex" value="女"><span class="radiovalue">女</span>
         </div>
         <div class="userinfoedit">
             <span class="tag">年龄</span>
@@ -93,7 +93,7 @@
                 <option>--请选择县区--</option>
             </select>
         </div>
-        <input type="submit" value="保存" class="bluebutton">
+        <input type="submit" class="bluebutton" value="保存">
     </form>
 </div>
 </body>
@@ -222,23 +222,28 @@
         var countyIndex = document.getElementById("county").selectedIndex;
         var county = document.getElementById("county").options[countyIndex].text;
 
-        document.getElementById("address").value = province + city + county;
+        var chooseAddress = province + city + county;
 
         if ("${user.address}" != null) {
-            document.getElementById("address").value = "${user.address}";
+            if (chooseAddress === "北京市市辖区东城区") {
+                document.getElementById("address").value = "${user.address}";
+            } else {
+                document.getElementById("address").value = chooseAddress;
+            }
+        } else {
+            document.getElementById("address").value = chooseAddress;
         }
     }
 
     function setUserdata() {
-        if ("${user.sex}" == "男") {
-            document.getElementsByName("sex")["value:contains(${user.sex})"].checked = true;
-        } else {
-            document.getElementById("sexfemale").checked = true;
+        $("input[name = 'sex'][value='${user.sex}']").attr("checked", true);
+        $("select[name='birthday']").find("option[value=" + '${user.birthday}' + "]").attr("selected", true);
+        $("select[name='constellation']").find("option[value=" + '${user.constellation}' + "]").attr("selected", true);
+
+        var hobbys = "${user.hobby}".split(",");
+        for (var i = 0; i < hobbys.length; i++) {
+            $("input[name = 'hobby'][value=" + hobbys[i] + "]").attr("checked", true);
         }
-
-        $("#birthday option:contains(${user.birthday})").attr("selected", true);
-        $("#constellation option:contains(${user.constellation})").attr("selected", true);
-
     }
 
 

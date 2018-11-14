@@ -51,9 +51,7 @@ public class LoginServlet extends HttpServlet {
         User user = dao.login(username, password);
 
         if (user != null) {
-            req.getSession().setAttribute("id", user.getId());
-            req.getSession().setAttribute("username", user.getUsername());
-            req.getSession().setAttribute("password", user.getPassword());
+            req.getSession().setAttribute("user", user);
             resp.sendRedirect("user/main.jsp");
         } else {
             req.getSession().setAttribute("loginresult", "用户名或密码错误");

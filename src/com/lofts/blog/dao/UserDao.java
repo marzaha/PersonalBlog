@@ -37,8 +37,15 @@ public class UserDao {
             if (resultSet.next()) {
                 user = new User();
                 user.setId(resultSet.getInt("id"));
+                user.setHeadimage(resultSet.getString("headimage"));
                 user.setUsername(resultSet.getString("username"));
-                user.setPassword(resultSet.getString("password"));
+                user.setNickname(resultSet.getString("nickname"));
+                user.setSex(resultSet.getString("sex"));
+                user.setBirthday(resultSet.getString("birthday"));
+                user.setConstellation(resultSet.getString("constellation"));
+                user.setHobby(resultSet.getString("hobby"));
+                user.setEmail(resultSet.getString("email"));
+                user.setAddress(resultSet.getString("address"));
                 System.out.print("登录成功");
             } else {
                 System.out.print("用户名或密码错误，请重试！");
@@ -81,7 +88,7 @@ public class UserDao {
      * @param userName
      * @return
      */
-    public String queryUser(String userName) {
+    public String checkUserName(String userName) {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -133,6 +140,43 @@ public class UserDao {
         }
 
         return null;
+    }
+
+    /**
+     * 查询用户详细信息
+     * @param id
+     * @return
+     */
+    public User queryUserInfo(int id) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        User user = new User();
+        try {
+            connection = JdbcUtils.getConnection();
+            String sql = "select * from user where id=?";
+            statement = (PreparedStatement) connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                user.setId(resultSet.getInt("id"));
+                user.setHeadimage(resultSet.getString("headimage"));
+                user.setUsername(resultSet.getString("username"));
+                user.setNickname(resultSet.getString("nickname"));
+                user.setSex(resultSet.getString("sex"));
+                user.setBirthday(resultSet.getString("birthday"));
+                user.setConstellation(resultSet.getString("constellation"));
+                user.setHobby(resultSet.getString("hobby"));
+                user.setEmail(resultSet.getString("email"));
+                user.setAddress(resultSet.getString("address"));
+                return user;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JdbcUtils.close(statement, connection);
+        }
+        return user;
     }
 
 

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50622
 File Encoding         : 65001
 
-Date: 2018-11-12 17:29:17
+Date: 2018-11-14 17:09:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -3584,7 +3584,7 @@ CREATE TABLE `hobby` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `hobbyname` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of hobby
@@ -3686,5 +3686,5 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'jiang', '123', null, null, null, null, null, null, null, null, null);
-INSERT INTO `user` VALUES ('2', 'user', '123', null, null, null, null, null, null, null, null, '2018-11-07');
+INSERT INTO `user` VALUES ('1', 'jiang', '123', 'upload/image/f561d920-02a9-484f-999b-9b1f761819a1.jpg', '阿海', '男', '60后', 'admin@gmail.com', '陕西省渭南市富平县', '金牛座', '旅游,摄影,阅读', '2018-11-08');
+INSERT INTO `user` VALUES ('2', 'user', '123', 'upload/image/d2244c6a-c021-4dfb-b9bd-ac820d1a3cc1.jpg', '李铭', '女', '70后', '12312312@qq.com', '安徽省六安市叶集区', '白羊座', '旅游,摄影', '2018-11-07');

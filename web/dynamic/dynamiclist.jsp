@@ -13,4 +13,15 @@
 <body>
 <h3>用户暂无动态</h3>
 </body>
+
+<script>
+    window.onload = function () {
+
+    }
+
+    //修改用户信息后跳转动态界面，需要刷新左边用户信息
+    function refreshLeft() {
+        window.parent.frames["mainleft"].location.reload();
+    }
+</script>
 </html>

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 
 @WebServlet("/EditUserInfoServlet")
@@ -17,9 +18,11 @@ public class EditUserInfoServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
+        PrintWriter out = response.getWriter();
 
-        int id = (int)request.getSession().getAttribute("id");
+        int id = ((User) request.getSession().getAttribute("user")).getId();
         String headimage = request.getParameter("imagepath");
+        String username = request.getParameter("username");
         String nickname = request.getParameter("nickname");
         String sex = request.getParameter("sex");
         String birthday = request.getParameter("birthday");
@@ -31,6 +34,7 @@ public class EditUserInfoServlet extends HttpServlet {
         User user = new User();
         user.setId(id);
         user.setHeadimage(headimage);
+        user.setUsername(username);
         user.setSex(sex);
         user.setNickname(nickname);
         user.setSex(sex);
@@ -44,7 +48,7 @@ public class EditUserInfoServlet extends HttpServlet {
         User result = dao.saveUserInfo(user);
         if (result != null) {
             request.getSession().setAttribute("user", result);
-            request.getRequestDispatcher("user/edituserinfo.jsp").forward(request, response);
+            request.getRequestDispatcher("dynamic/dynamiclist.jsp").forward(request, response);
         } else {
             request.getSession().setAttribute("loginresult", "修改失败");
             request.getRequestDispatcher("user/edituserinfo.jsp").forward(request, response);

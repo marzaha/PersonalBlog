@@ -1,7 +1,6 @@
 package com.lofts.blog.service;
 
 import java.io.IOException;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -45,7 +44,7 @@ public class RegisterServlet extends HttpServlet {
         }
 
         UserDao userDAO = new UserDao();
-        String result = userDAO.queryUser(name);
+        String result = userDAO.checkUserName(name);
         if (result != null && !result.isEmpty()) {
             req.getSession().setAttribute("registerresult", "该用户名已被注册");
             req.getRequestDispatcher("/login/register.jsp").forward(req, resp);
