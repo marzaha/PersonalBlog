@@ -1,0 +1,82 @@
+#writemain {
+    width: 800px;
+    height: 1000px;
+    padding: 50px;
+}
+
+#headdiv {
+    width: 800px;
+    height: 30px;
+}
+
+#publish {
+    color: white;
+    border-width: 0px;
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float: right;
+    border-radius: 5px;
+    background-color: #46A5FF;
+    text-decoration: none;
+}
+
+#back {
+    color: #46A5FF;
+    border-width: 1px;
+    border-color: #46A5FF;
+    border-style: solid;
+    font-size: 14px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    float: left;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.writediv {
+    margin-top: 20px;
+}
+
+.inputedit {
+    margin-left: 20px;
+    font-size: 14px;
+    color: black;
+    height: 28px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.tag {
+    width: 60px;
+    height: auto;
+    display: inline-block;
+    font-size: 14px;
+    color: grey;
+}
+
+.selectedit {
+    margin-left: 20px;
+    font-size: 14px;
+    height: 28px;
+    width: 320px;
+    vertical-align: middle;
+}
+
+.toolbar {
+    border: 1px solid #ccc;
+}
+
+.content {
+    border: 1px solid #ccc;
+    height: 450px;
+}
+
+.contenttip{
+    font-size: 12px;
+    color: black;
+}

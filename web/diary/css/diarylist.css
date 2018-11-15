@@ -1,0 +1,68 @@
+#diarymain {
+    width: 800px;
+    height: 1000px;
+    padding: 50px;
+}
+
+#headdiv {
+    width: 800px;
+    height: 30px;
+}
+
+#write {
+    color: white;
+    border-width: 0px;
+    font-size: 14px;
+    padding: 5px;
+    float: right;
+    border-radius: 5px;
+    background-color: #46A5FF;
+    text-decoration: none;
+}
+
+.headline {
+    width: 100%;
+    height: 1px;
+    margin-top: 10px;
+    background-color: lightgray;
+}
+
+ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    left: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+li a {
+    font-size: 14px;
+    color: black;
+}
+
+.diarytype{
+    font-size: 8px;
+    color: red;
+    border: 1px;
+    margin-left: 5px;
+    text-align: center;
+    border-radius: 3px;
+    border-color: red;
+    border-style: solid;
+}
+
+.diarydate{
+    font-size: 14px;
+    float: right;
+}
+
+.listline {
+    width: 100%;
+    border: 1px;
+    color: lightgray;
+    border-bottom-style: dashed;
+}
