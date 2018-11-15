@@ -15,11 +15,11 @@
 <body>
 <div id="writemain">
     <div id="headdiv">
-        <input type="button" id="back" value="返回"/>
-        <input type="button" id="publish" value="发表"/>
+        <input type="button" id="back" value="返回" onclick="history.go(-1);"/>
+        <input type="button" id="publish" value="发表" onclick="publishDiary()"/>
     </div>
     <hr class="headline">
-    <form action="${pageContext.request.contextPath}/EditUserInfoServlet" method="post">
+    <form id="writeform" action="${pageContext.request.contextPath}/AddDiaryServlet" method="post">
         <div class="writediv">
             <span class="tag">标题</span>
             <input type="text" class="inputedit" id="title" name="title" size="40" maxlength="20" placeholder="请输入标题">
@@ -60,6 +60,10 @@
             contentInput.value = html;
         };
         editor.create();
+    }
+
+    function publishDiary() {
+        document.getElementById("writeform").submit();
     }
 
 

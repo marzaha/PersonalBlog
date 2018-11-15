@@ -59,7 +59,6 @@ public class RegisterServlet extends HttpServlet {
 
         req.getSession().setAttribute("registerresult", "");
         req.getRequestDispatcher("/login/login.jsp").forward(req, resp);
-        System.out.println("注册成功");
     }
 
 }

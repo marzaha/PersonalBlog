@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50622
 File Encoding         : 65001
 
-Date: 2018-11-14 17:09:53
+Date: 2018-11-15 17:59:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -3567,14 +3567,19 @@ DROP TABLE IF EXISTS `diary`;
 CREATE TABLE `diary` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
-  `content` varchar(500) NOT NULL,
+  `type` varchar(25) DEFAULT NULL,
+  `content` varchar(2000) NOT NULL,
   `createdate` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of diary
 -- ----------------------------
+INSERT INTO `diary` VALUES ('1', '公园游记', '纪实', '<p>&nbsp; &nbsp; &nbsp; &nbsp;<span style=\"font-size: small;\">天阴沉沉的，冰冷的冬雨每夜开始不停地淅淅沥沥的，下的人心情烦闷......从山腰树丛里弥漫而起的云雾渐渐模糊了四周的山峦。风，踩过山口掠过树梢，沿着山脊河流侵袭而来，夹着雨珠扑打在人的脸上，顿觉一股寒气逼人。</span></p><p><span style=\"font-size: small;\">顶着山风和冰冷的细雨，我们沿着蜿蜒泥泞的乡道，深一脚浅一脚向前赶路。这鬼天气，弄的车也开不进山里，只好步行穿小路进山了。步行了大约一公里，左转进一个低矮的小山谷，两边长满了荒草，我忙问同事，这是走哪儿去？回答我说，是进山的小路。我说上次走的不是这条路呀？他们说这是另外一条，可以直达目的地。</span></p><p><br></p>', '2018-11-15');
+INSERT INTO `diary` VALUES ('2', '无聊随感', '心情', '<p>&nbsp; &nbsp; &nbsp; &nbsp; 走 进楠竹林，摸着楠竹那瘦高的躯干，感觉就一个字:静，静的能听到风儿的轻吟。前面所过的山林感觉古朴苍劲，似一曲古琴弹奏。而眼前这片楠竹却是风姿卓越般的优雅，犹如在轻抚古筝般地享受那曲天籁。</p><p>翻过了山梁缓坡而下，才发觉背心有点冷，忙裹紧棉衣竖起衣领浅步跟上......</p><p>顺着山顶小溪的足痕，没想到下山的路同样难行。一会儿踩着一截断木搭就的小桥过溪，一会儿又扶着山崖踩着石头跳过山涧。冬雨、石板路、山涧、树林和小溪交织，加上我们这一行赶路的人，我在想：如果再披上斗笠和蓑衣，赶着牛，我们可不就真成了 一幅地地道道的《水墨山野村夫图》了吗？</p>', '2018-11-15');
+INSERT INTO `diary` VALUES ('3', 'JS代码', '随笔', '<p class=\"contenttip\"><span style=\"background-color: rgb(241, 241, 241);\">function checkUser(){</span></p><pre><code>   var result = document.getElementById(\"userid\").value;<br>   var password = document.getElementById(\"passid\").value;<br><br>   if(result == \"\"  ){<br>     alert(\"用户名不能为空\");<br>     return false;<br>   }<br>   if(password == \"\"  ){<br>    alert(\"密码不能为空\");<br>     return false;<br>   }<br>  document.getElementById(\"formid\").submit();<br>}</code></pre><p><br></p><p><br></p>', '2018-11-15');
+INSERT INTO `diary` VALUES ('4', 'DedeCMS软件简介', '文学', '<h2>DedeCMS内容管理系统软件简介</h2><p>欢迎使用国内最专业的PHP网站内容管理系统-织梦内容管理系统，他将是您轻松建站的首选利器。采用XML名字空间风格核心模板：模板全部使用文件形式保存，对用户设计模板、网站升级转移均提供很大的便利，健壮的模板标签为站长DIY 自己的网站提供了强有力的支持。高效率标签缓存机制：允许对类同的标签进行缓存，在生成 HTML的时候，有利于提高系统反应速度，降低系统消耗的资源。模型与模块概念并存：在模型不能满足用户所有需求的情况下，DedeCMS推出一些互动的模块对系统进行补充，尽量满足用户的需求。众多的应用支持：为用户提供了各类网站建设的一体化解决方案，在本版本中，增加了分类、书库、黄页、圈子、问答等模块，补充一些用户的特殊要求。面向未来过渡：织梦团队的组建为织梦CMS的发展提供坚实的基础，在织梦团队未来的构想中，它以后将会具有更大的灵活性和稳定的性能。</p><p><br></p>', '2018-11-15');
 
 -- ----------------------------
 -- Table structure for hobby
@@ -3686,5 +3691,5 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'jiang', '123', 'upload/image/f561d920-02a9-484f-999b-9b1f761819a1.jpg', '阿海', '男', '60后', 'admin@gmail.com', '陕西省渭南市富平县', '金牛座', '旅游,摄影,阅读', '2018-11-08');
+INSERT INTO `user` VALUES ('1', 'jiang', '123', 'upload/image/1f146149-9c33-4895-8613-e5a31d32c215.jpg', '阿海', '男', '60后', 'admin@gmail.com', '陕西省渭南市富平县', '金牛座', '旅游,摄影,音乐', '2018-11-08');
 INSERT INTO `user` VALUES ('2', 'user', '123', 'upload/image/d2244c6a-c021-4dfb-b9bd-ac820d1a3cc1.jpg', '李铭', '女', '70后', '12312312@qq.com', '安徽省六安市叶集区', '白羊座', '旅游,摄影', '2018-11-07');

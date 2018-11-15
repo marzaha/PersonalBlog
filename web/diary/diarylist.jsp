@@ -1,3 +1,7 @@
+<%@ page import="com.lofts.blog.bean.Diary" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.lofts.blog.dao.DiaryDao" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -6,11 +10,19 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/diary/css/diarylist.css">
 </head>
+
+<%
+    DiaryDao diaryDao = new DiaryDao();
+    List<Diary> list = diaryDao.queryAllDiary();
+    request.setAttribute("diarylist", list);
+%>
+
 <body>
 <div id="diarymain">
     <div id="headdiv">
@@ -19,30 +31,12 @@
     <hr class="headline">
     <div id="diarylist">
         <ul>
-            <li>
-                <div><a>寒假纪实</a><span class="diarytype">心情</span><span class="diarydate">2018年12月12日</span></div>
-            </li>
-            <hr class="listline">
-            <li>
-                <div><a>寒假纪实</a><span class="diarytype">心情</span><span class="diarydate">2018年12月12日</span></div>
-            </li>
-            <hr class="listline">
-            <li>
-                <div><a>寒假纪实</a><span class="diarytype">心情</span><span class="diarydate">2018年12月12日</span></div>
-            </li>
-            <hr class="listline">
-            <li>
-                <div><a>寒假纪实</a><span class="diarytype">心情</span><span class="diarydate">2018年12月12日</span></div>
-            </li>
-            <hr class="listline">
-            <li>
-                <div><a>寒假纪实</a><span class="diarytype">心情</span><span class="diarydate">2018年12月12日</span></div>
-            </li>
-            <hr class="listline">
-            <li>
-                <div><a>寒假纪实</a><span class="diarytype">心情</span><span class="diarydate">2018年12月12日</span></div>
-            </li>
-            <hr class="listline">
+            <c:forEach items="${diarylist}" var="diary">
+                <li>
+                    <div><a>${diary.title}</a><span class="diarytype">${diary.type}</span><span class="diarydate">${diary.createdate}</span></div>
+                </li>
+                <hr class="listline">
+            </c:forEach>
         </ul>
     </div>
 </div>
