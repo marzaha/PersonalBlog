@@ -1,0 +1,47 @@
+#writemain {
+    width: 660px;
+    height: 1000px;
+    margin: 20px;
+    position: relative;
+}
+
+.headdiv {
+    width:660px;
+    height: 30px;
+}
+
+.headline {
+    width: 100%;
+    height: 1px;
+    margin-top: 3px;
+    background-color: lightgray;
+}
+
+#title{
+    color: black;
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    background-color: white;
+}
+
+
+#back {
+    color: lightgray;
+    border-width: 0px;
+    font-size: 12px;
+    float: left;
+    margin-top: 5px;
+    background-color: white;
+}
+
+#date{
+    color: lightgray;
+    font-size: 12px;
+    float: right;
+}
+
+#diaryshow{
+    width:660px;
+    height: 500px;
+}

@@ -1,12 +1,19 @@
 #writemain {
-    width: 800px;
+    width: 660px;
     height: 1000px;
-    padding: 50px;
+    margin: 20px;
 }
 
 #headdiv {
-    width: 800px;
+    width:660px;
     height: 30px;
+}
+
+.headline {
+    width: 100%;
+    height: 1px;
+    margin-top: 10px;
+    background-color: lightgray;
 }
 
 #publish {
@@ -24,17 +31,11 @@
 }
 
 #back {
-    color: #46A5FF;
-    border-width: 1px;
-    border-color: #46A5FF;
-    border-style: solid;
-    font-size: 14px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 8px;
-    padding-right: 8px;
+    color: lightgray;
+    border-width: 0px;
+    font-size: 12px;
     float: left;
-    border-radius: 5px;
+    margin-top: 10px;
     background-color: white;
 }
 

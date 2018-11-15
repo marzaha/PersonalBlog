@@ -33,7 +33,10 @@
         <ul>
             <c:forEach items="${diarylist}" var="diary">
                 <li>
-                    <div><a>${diary.title}</a><span class="diarytype">${diary.type}</span><span class="diarydate">${diary.createdate}</span></div>
+                    <div>
+                        <a href="${pageContext.request.contextPath}/diary/diaryshow.jsp?diaryid=${diary.id}">${diary.title}</a>
+                        <span class="diarytype">${diary.type}</span><span class="diarydate">${diary.createdate}</span>
+                    </div>
                 </li>
                 <hr class="listline">
             </c:forEach>
