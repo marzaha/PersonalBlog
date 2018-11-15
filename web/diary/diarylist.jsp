@@ -29,7 +29,7 @@
         <a id="write" href="${pageContext.request.contextPath}/diary/writediary.jsp">写日志</a>
     </div>
     <hr class="headline">
-    <div id="diarylist">
+    <div>
         <ul>
             <c:forEach items="${diarylist}" var="diary">
                 <li>

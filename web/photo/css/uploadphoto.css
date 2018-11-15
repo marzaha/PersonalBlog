@@ -1,0 +1,54 @@
+#uploadmain {
+    width: 660px;
+    height: 1000px;
+    margin: 20px;
+}
+
+#headdiv {
+    width:660px;
+    height: 30px;
+}
+
+
+#choose {
+    color: #46A5FF;
+    border-width: 1px;
+    font-size: 12px;
+    padding: 2px;
+    border-color: #46A5FF;
+    float: right;
+    border-radius: 3px;
+    background-color: white;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+#upload {
+    color: white;
+    border-width: 0px;
+    font-size: 12px;
+    padding: 3px;
+    float: right;
+    border-radius: 3px;
+    background-color: #46A5FF;
+    text-decoration: none;
+}
+
+#back {
+    color: lightgray;
+    border-width: 0px;
+    font-size: 12px;
+    float: left;
+    margin-top: 5px;
+    background-color: white;
+}
+
+#uploadfile{
+    display: none;
+}
+
+.photo{
+    width: 120px;
+    height: 120px;
+}
+

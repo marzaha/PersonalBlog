@@ -16,7 +16,7 @@
 
 <script>
     window.onload = function () {
-
+        refreshLeft();
     }
 
     //修改用户信息后跳转动态界面，需要刷新左边用户信息
