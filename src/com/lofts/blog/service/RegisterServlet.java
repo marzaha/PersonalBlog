@@ -58,7 +58,7 @@ public class RegisterServlet extends HttpServlet {
         userDAO.register(user);
 
         req.getSession().setAttribute("registerresult", "");
-        req.getRequestDispatcher("/index.jsp").forward(req, resp);
+        req.getRequestDispatcher("/login/login.jsp").forward(req, resp);
         System.out.println("注册成功");
     }
 

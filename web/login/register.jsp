@@ -40,7 +40,7 @@
             <input class="registerbutton" name="register" onclick="return checkLogin();" type="submit" value="注册">
         </div>
     </form>
-    <a href="<%=request.getContextPath()%>/index.jsp" class="gologinbutton">去登陆</a>
+    <a href="<%=request.getContextPath()%>/login/login.jsp" class="gologinbutton">去登陆</a>
 </div>
 </body>
 

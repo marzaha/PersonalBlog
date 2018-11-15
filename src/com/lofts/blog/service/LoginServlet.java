@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 
         if (!inputcodeUpper.equals(sessionCode)) {
             req.getSession().setAttribute("loginresult", "验证码错误");
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
+            req.getRequestDispatcher("login/login.jsp").forward(req, resp);
         }
 
         UserDao dao = new UserDao();
@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet {
             resp.sendRedirect("user/main.jsp");
         } else {
             req.getSession().setAttribute("loginresult", "用户名或密码错误");
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
+            req.getRequestDispatcher("login/login.jsp").forward(req, resp);
         }
     }
 
