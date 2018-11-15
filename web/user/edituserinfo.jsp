@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.lofts.blog.dao.CommonDataDao" %>
+<%@ page import="com.lofts.blog.dao.CommonDao" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
@@ -15,18 +15,17 @@
 </head>
 
 <%
-    List<String> birthdaylist = CommonDataDao.getBirthdayList();
+    List<String> birthdaylist = CommonDao.getBirthdayList();
     request.setAttribute("birthdaylist", birthdaylist);
-    List<String> constellationlist = CommonDataDao.getConstellationList();
+    List<String> constellationlist = CommonDao.getConstellationList();
     request.setAttribute("constellationlist", constellationlist);
-    List<String> hobbylist = CommonDataDao.getHobbyList();
+    List<String> hobbylist = CommonDao.getHobbyList();
     request.setAttribute("hobbylist", hobbylist);
 %>
 
 
 <body>
 <div id="maincontent">
-    <h4>编辑个人信息</h4>
     <form action="${pageContext.request.contextPath}/EditUserInfoServlet" method="post">
         <div id="editheaddiv">
             <c:if test="${empty user}">

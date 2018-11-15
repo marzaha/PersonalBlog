@@ -96,7 +96,6 @@
 .tag {
     width: 60px;
     height: auto;
-    display: -moz-inline-box;
     display: inline-block;
     font-size: 14px;
     color: grey;
@@ -115,10 +114,7 @@
 #maincontent {
     width: 700px;
     height: 1000px;
-    padding-top: 30px;
-    padding-bottom: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 50px;
 }
 
 #editheaddiv {
