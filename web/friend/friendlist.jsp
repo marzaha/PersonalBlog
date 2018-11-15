@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-好友列表
+<p>暂无好友</p>
 </body>
 </html>

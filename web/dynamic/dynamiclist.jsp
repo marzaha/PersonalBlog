@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<h3>用户暂无动态</h3>
+<p>暂无动态</p>
 </body>
 
 <script>
