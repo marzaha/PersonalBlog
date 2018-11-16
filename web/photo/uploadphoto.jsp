@@ -11,24 +11,26 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/photo/css/uploadphoto.css">
-    <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="../js/ajaxfileupload.js"></script>
-    <script type="text/javascript" src="../layer/layer.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/ajaxfileupload.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/layer/layer.js"></script>
 </head>
 <body>
 <div id="uploadmain">
     <div id="headdiv">
         <input type="button" id="back" value="返回" onclick="history.go(-1);"/>
-        <a id="upload" href="${pageContext.request.contextPath}/photo/uploadphoto.jsp">上传照片</a>
+        <input type="button" id="upload" value="上传照片" onclick="uploadPhoto()">
         <input type="button" id="choose" value="选择照片" onclick="choosePhoto()"/>
         <input type="file" id="uploadfile" name="uploadfile" accept="image/jpeg" multiple="multiple" onchange="uploadImage()"/>
     </div>
     <hr class="headline">
-    <div>
-        <ul id="photolist">
+    <form id="photoform" action="${pageContext.request.contextPath}/UploadPhotoServlet" method="post">
+        <div>
+            <ul id="photolist">
 
-        </ul>
-    </div>
+            </ul>
+        </div>
+    </form>
 </div>
 </body>
 
@@ -51,7 +53,7 @@
             },
             error: function (response) {
                 alert(response)
-                layer.close(tip);
+                layer.closeAll();
             }
         })
     }
@@ -59,13 +61,26 @@
     function addPhotoNode(array) {
         var ulEle = document.getElementById("photolist");
         for (var i = 0; i < array.length; i++) {
-
             var liEle = document.createElement("li");
+
             var imgEle = document.createElement("img");
             imgEle.setAttribute("class", "photo");
-            imgEle.src = "${pageContext.request.contextPath}" + "/" + array[i].imagepath;
+            imgEle.src = "${pageContext.request.contextPath}/" + array[i].imagepath;
+
+            var imagepathEle = document.createElement("input")
+            imagepathEle.setAttribute("type", "hidden");
+            imagepathEle.setAttribute("name", "imagepath" + i);
+            imagepathEle.setAttribute("value", array[i].imagepath);
+
+            var remarkEle = document.createElement("input")
+            remarkEle.setAttribute("type", "text");
+            remarkEle.setAttribute("name", "remark" + i);
+            remarkEle.setAttribute("max-length", "10");
+            remarkEle.setAttribute("placeholder", "请输入照片备注");
 
             liEle.appendChild(imgEle);
+            liEle.appendChild(imagepathEle);
+            liEle.appendChild(remarkEle);
 
             ulEle.appendChild(liEle);
         }
@@ -74,6 +89,10 @@
 
     function choosePhoto() {
         document.getElementById("uploadfile").click();
+    }
+
+    function uploadPhoto() {
+        document.getElementById("photoform").submit();
     }
 
 </script>

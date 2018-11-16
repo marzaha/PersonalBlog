@@ -122,8 +122,7 @@
                 layer.closeAll();
             },
             error: function (response) {
-                alert(response)
-                layer.close(tip);
+                layer.closeAll();
             }
         })
     }

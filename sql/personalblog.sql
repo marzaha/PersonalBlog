@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50622
 File Encoding         : 65001
 
-Date: 2018-11-15 17:59:01
+Date: 2018-11-16 18:04:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -3620,6 +3620,42 @@ CREATE TABLE `imagefile` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for photo
+-- ----------------------------
+DROP TABLE IF EXISTS `photo`;
+CREATE TABLE `photo` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `imagepath` varchar(255) DEFAULT NULL,
+  `remark` varchar(25) DEFAULT NULL,
+  `uploaddate` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of photo
+-- ----------------------------
+INSERT INTO `photo` VALUES ('1', 'upload/image/273e3870-2081-48d0-abba-8087354a69a8.jpg', '夜景', '2018-11-16');
+INSERT INTO `photo` VALUES ('2', 'upload/image/d387297d-ada2-43ed-a131-10b5da461ed4.jpg', '雪人', '2018-11-16');
+INSERT INTO `photo` VALUES ('3', 'upload/image/07507e48-15e5-4d90-98fe-07cfaadf6630.jpg', '未命名', '2018-11-16');
+INSERT INTO `photo` VALUES ('4', 'upload/image/54b936a0-fc7b-452a-ba98-eedc5254e21b.jpg', '飞船', '2018-11-16');
+INSERT INTO `photo` VALUES ('5', 'upload/image/d8c99252-1869-4008-b631-a79dcdad6734.jpg', '未命名', '2018-11-16');
+INSERT INTO `photo` VALUES ('6', 'upload/image/d9085c50-1790-4ce1-ac39-47c47c468059.jpg', '世界地图', '2018-11-16');
+INSERT INTO `photo` VALUES ('7', 'upload/image/aa5a8b47-dce6-460a-bf9f-172e0a529b84.jpg', '月亮', '2018-11-16');
+INSERT INTO `photo` VALUES ('8', 'upload/image/f22a78e3-b5e3-4146-95ab-57c199bcd04f.jpg', '壁纸', '2018-11-16');
+INSERT INTO `photo` VALUES ('9', 'upload/image/ad35a54b-59c3-4365-b90d-2f89d544b8de.jpg', 'asd', '2018-11-16');
+INSERT INTO `photo` VALUES ('10', 'upload/image/e50a0dff-5ced-4539-8fd8-899418dc27b8.jpg', '啊是大', '2018-11-16');
+INSERT INTO `photo` VALUES ('11', 'upload/image/d55eba1c-3c53-44c4-9775-8b19757808e8.jpg', '啊是大', '2018-11-16');
+INSERT INTO `photo` VALUES ('12', 'upload/image/309c4f20-50c7-4845-8b86-87e66a068953.jpg', '啊是大', '2018-11-16');
+INSERT INTO `photo` VALUES ('13', 'upload/image/d6eeebd3-20e7-466b-9fba-45d9ddd32ba2.jpg', '未命名', '2018-11-16');
+INSERT INTO `photo` VALUES ('14', 'upload/image/0ea82125-d188-4791-8580-809ef49fb1f1.jpg', '啊是大', '2018-11-16');
+INSERT INTO `photo` VALUES ('15', 'upload/image/c6661e78-8d32-4e66-afd3-773a730539ae.jpg', '未命名', '2018-11-16');
+INSERT INTO `photo` VALUES ('16', 'upload/image/6ef9cc90-8a87-4e21-8a20-234cd1381313.jpg', '未命名', '2018-11-16');
+INSERT INTO `photo` VALUES ('17', 'upload/image/65e3daa4-e215-45b3-871c-56d666914874.jpg', '未命名', '2018-11-16');
+INSERT INTO `photo` VALUES ('18', 'upload/image/cab5fc8b-ddfa-4ead-8c17-9d393041dec5.jpg', '未命名', '2018-11-16');
+INSERT INTO `photo` VALUES ('19', 'upload/image/4026682d-e9c6-4a4c-974b-bf3ed66c4ff0.jpg', '未命名', '2018-11-16');
+INSERT INTO `photo` VALUES ('20', 'upload/image/0d991088-1971-43b7-8ff4-9ddfed0e3a79.jpg', '未命名', '2018-11-16');
+
+-- ----------------------------
 -- Table structure for province
 -- ----------------------------
 DROP TABLE IF EXISTS `province`;
@@ -3691,5 +3727,5 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'jiang', '123', 'upload/image/1f146149-9c33-4895-8613-e5a31d32c215.jpg', '阿海', '男', '60后', 'admin@gmail.com', '陕西省渭南市富平县', '金牛座', '旅游,摄影,音乐', '2018-11-08');
+INSERT INTO `user` VALUES ('1', 'jiang', '123', 'upload/image/d6429728-5989-44fc-aa38-0cd678f895a3.jpg', '阿海', '男', '60后', 'admin@gmail.com', '陕西省渭南市富平县', '金牛座', '旅游,摄影,音乐', '2018-11-08');
 INSERT INTO `user` VALUES ('2', 'user', '123', 'upload/image/d2244c6a-c021-4dfb-b9bd-ac820d1a3cc1.jpg', '李铭', '女', '70后', '12312312@qq.com', '安徽省六安市叶集区', '白羊座', '旅游,摄影', '2018-11-07');
